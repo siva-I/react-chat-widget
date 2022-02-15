@@ -1,6 +1,6 @@
-@import 'variables/colors';
+@import "variables/colors";
 
-.rcw-sender {
+.ua-sender {
   align-items: flex-end;
   background-color: $grey-2;
   border-radius: 0 0 10px 10px;
@@ -17,7 +17,7 @@
   }
 }
 
-.rcw-new-message {
+.ua-new-message {
   background-color: $white;
   border: 0;
   border-radius: 5px;
@@ -34,7 +34,7 @@
   }
 }
 
-.rcw-input {
+.ua-input {
   display: block;
   height: 100%;
   line-height: 20px;
@@ -50,27 +50,28 @@
 
   &[placeholder]:empty::before {
     content: attr(placeholder);
-    color: $grey-0; 
+    color: $grey-0;
   }
 }
 
-.rcw-send, .rcw-picker-btn {
+.ua-send,
+.ua-picker-btn {
   background: $grey-2;
   border: 0;
   cursor: pointer;
 
-  .rcw-send-icon {
+  .ua-send-icon {
     height: 25px;
   }
 }
 
-.rcw-message-disable {
+.ua-message-disable {
   background-color: $grey-2;
   cursor: not-allowed;
 }
 
-@media screen and (max-width: 800px)  {
-  .rcw-sender {
+@media screen and (max-width: 800px) {
+  .ua-sender {
     border-radius: 0;
     flex-shrink: 0;
   }

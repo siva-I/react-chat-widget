@@ -1,39 +1,39 @@
-@import 'common';
-@import 'variables/colors';
-@import 'animation';
+@import "common";
+@import "variables/colors";
+@import "animation";
 
-.rcw-launcher {
+.ua-launcher {
   @include animation(0, 0.5s, slide-in);
   align-self: flex-end;
-  background-color: $turqois-1;
+  background-color: rgba(0, 0, 0, 0);
   border: 0;
-  border-radius: 50%;
-  box-shadow: 0px 2px 10px 1px $grey-3;
+  border-radius: none;
+  box-shadow: none;
   height: 60px;
   margin-top: 10px;
   cursor: pointer;
   width: 60px;
-
+  color: none;
   &:focus {
     outline: none;
   }
 }
 
-.rcw-open-launcher {
+.ua-open-launcher {
   @include animation(0, 0.5s, rotation-rl);
 }
 
-.rcw-close-launcher {
+.ua-close-launcher {
   width: 20px;
   @include animation(0, 0.5s, rotation-lr);
 }
 
-@media screen and (max-width: 800px){
-  .rcw-launcher {
+@media screen and (max-width: 800px) {
+  .ua-launcher {
     @include launcher-fs;
   }
 
-  .rcw-hide-sm {
+  .ua-hide-sm {
     display: none;
   }
 }

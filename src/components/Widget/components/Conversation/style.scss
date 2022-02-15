@@ -1,13 +1,15 @@
-@import 'common';
-@import 'variables/colors';
-@import 'animation';
+@import "common";
+@import "variables/colors";
+@import "animation";
 @import "~emoji-mart/css/emoji-mart.css";
 
-.rcw-conversation-container {
+.ua-conversation-container {
   border-radius: 10px;
   box-shadow: 0px 2px 10px 1px $grey-3;
-  min-width: 370px;
+  min-width: 400px;
   max-width: 90vw;
+  height: 620px;
+  max-height: 100vh;
   position: relative;
 
   &.active {
@@ -25,7 +27,7 @@
   }
 }
 
-.rcw-conversation-resizer {
+.ua-conversation-resizer {
   cursor: col-resize;
   height: 100%;
   left: 0;
@@ -38,14 +40,14 @@
   display: none;
 }
 
-.rcw-full-screen {
-  .rcw-conversation-container {
+.ua-full-screen {
+  .ua-conversation-container {
     @include conversation-container-fs;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .rcw-conversation-container {
+  .ua-conversation-container {
     @include conversation-container-fs;
   }
 }

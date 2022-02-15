@@ -1,7 +1,7 @@
-@import 'variables/colors';
-@import 'common';
+@import "variables/colors";
+@import "common";
 
-.rcw-message {
+.ua-message {
   margin: 10px;
   display: flex;
   white-space: pre-wrap;
@@ -12,40 +12,40 @@
   }
 }
 
-.rcw-timestamp {
+.ua-timestamp {
   font-size: 10px;
   margin-top: 5px;
 }
 
-.rcw-client {
+.ua-client {
   display: flex;
   flex-direction: column;
   margin-left: auto;
 
-  .rcw-message-text {
-    @include message-bubble($turqois-2);
+  .ua-message-text {
+    @include message-bubble($black, $white);
 
     white-space: pre-wrap;
     word-wrap: break-word;
   }
 
-  .rcw-timestamp {
+  .ua-timestamp {
     align-self: flex-end;
   }
 }
 
-.rcw-response {
+.ua-response {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
-  .rcw-message-text {
+  .ua-message-text {
     @include message-bubble($grey-2);
   }
 }
 
 /* For markdown elements created with default styles */
-.rcw-message-text {
+.ua-message-text {
   p {
     margin: 0;
   }
@@ -56,7 +56,7 @@
   }
 }
 
-.rcw-avatar {
+.ua-avatar {
   width: 40px;
   height: 40px;
   border-radius: 100%;

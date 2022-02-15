@@ -1,25 +1,25 @@
-@import 'variables/colors';
-@import 'common';
+@import "variables/colors";
+@import "common";
 
-.rcw-conversation-container {
-
-  .rcw-header {
-    background-color: $turqois-1;
+.ua-conversation-container {
+  .ua-header {
+    background-color: #000;
     border-radius: 10px 10px 0 0;
     color: $white;
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 15px 0 25px;
+    height: 60px;
+    // padding: 15px 0 25px;
   }
 
-  .rcw-title {
+  .ua-title {
     font-size: 24px;
     margin: 0;
     padding: 15px 0;
   }
 
-  .rcw-close-button {
+  .ua-close-button {
     display: none;
   }
 
@@ -32,42 +32,39 @@
   }
 }
 
-.rcw-full-screen {
-
-  .rcw-header {
+.ua-full-screen {
+  .ua-header {
     @include header-fs;
   }
 
-  .rcw-title {
+  .ua-title {
     @include title-fs;
   }
 
-  .rcw-close-button {
+  .ua-close-button {
     @include close-button-fs;
   }
 
-  .rcw-close {
+  .ua-close {
     @include close-fs;
   }
 }
 
 @media screen and (max-width: 800px) {
-
-  .rcw-conversation-container {
-
-    .rcw-header {
+  .ua-conversation-container {
+    .ua-header {
       @include header-fs;
     }
 
-    .rcw-title {
+    .ua-title {
       @include title-fs;
     }
 
-    .rcw-close-button {
+    .ua-close-button {
       @include close-button-fs;
     }
 
-    .rcw-close {
+    .ua-close {
       @include close-fs;
     }
   }

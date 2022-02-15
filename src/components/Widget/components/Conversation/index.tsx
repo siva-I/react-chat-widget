@@ -1,15 +1,15 @@
-import { useRef, useState, useEffect } from 'react';
-import { Picker } from 'emoji-mart';
-import cn from 'classnames';
+import { useRef, useState, useEffect } from "react";
+import { Picker } from "emoji-mart";
+import cn from "classnames";
 
-import Header from './components/Header';
-import Messages from './components/Messages';
-import Sender from './components/Sender';
-import QuickButtons from './components/QuickButtons';
+import Header from "./components/Header";
+import Messages from "./components/Messages";
+import Sender from "./components/Sender";
+import QuickButtons from "./components/QuickButtons";
 
-import { AnyFunction } from '../../../../utils/types';
+import { AnyFunction } from "../../../../utils/types";
 
-import './style.scss';
+import "./style.scss";
 
 interface ISenderRef {
   onSelectEmoji: (event: any) => void;
@@ -54,59 +54,65 @@ function Conversation({
   sendButtonAlt,
   showTimeStamp,
   resizable,
-  emojis
+  emojis,
 }: Props) {
   const [containerDiv, setContainerDiv] = useState<HTMLElement | null>();
   let startX, startWidth;
 
   useEffect(() => {
-    const containerDiv = document.getElementById('rcw-conversation-container');
+    const containerDiv = document.getElementById("ua-conversation-container");
     setContainerDiv(containerDiv);
   }, []);
 
   const initResize = (e) => {
     if (resizable) {
       startX = e.clientX;
-      if (document.defaultView && containerDiv){
-        startWidth = parseInt(document.defaultView.getComputedStyle(containerDiv).width);
-        window.addEventListener('mousemove', resize, false);
-        window.addEventListener('mouseup', stopResize, false);
+      if (document.defaultView && containerDiv) {
+        startWidth = parseInt(
+          document.defaultView.getComputedStyle(containerDiv).width
+        );
+        window.addEventListener("mousemove", resize, false);
+        window.addEventListener("mouseup", stopResize, false);
       }
     }
-  }
+  };
 
   const resize = (e) => {
     if (containerDiv) {
-      containerDiv.style.width = (startWidth - e.clientX + startX) + 'px';
+      containerDiv.style.width = startWidth - e.clientX + startX + "px";
     }
-  }
+  };
 
   const stopResize = (e) => {
-    window.removeEventListener('mousemove', resize, false);
-    window.removeEventListener('mouseup', stopResize, false);
-  }
-  
-  const [pickerOffset, setOffset] = useState(0)
+    window.removeEventListener("mousemove", resize, false);
+    window.removeEventListener("mouseup", stopResize, false);
+  };
+
+  const [pickerOffset, setOffset] = useState(0);
   const senderRef = useRef<ISenderRef>(null!);
-  const [pickerStatus, setPicket] = useState(false) 
- 
+  const [pickerStatus, setPicket] = useState(false);
+
   const onSelectEmoji = (emoji) => {
-    senderRef.current?.onSelectEmoji(emoji)
-  }
+    senderRef.current?.onSelectEmoji(emoji);
+  };
 
   const togglePicker = () => {
-    setPicket(prevPickerStatus => !prevPickerStatus)
-  }
+    setPicket((prevPickerStatus) => !prevPickerStatus);
+  };
 
   const handlerSendMsn = (event) => {
-    sendMessage(event)
-    if(pickerStatus) setPicket(false)
-  }
+    sendMessage(event);
+    if (pickerStatus) setPicket(false);
+  };
 
   return (
-    <div id="rcw-conversation-container" onMouseDown={initResize} 
-      className={cn('rcw-conversation-container', className)} aria-live="polite">
-      {resizable && <div className="rcw-conversation-resizer" />}
+    <div
+      id="ua-conversation-container"
+      onMouseDown={initResize}
+      className={cn("ua-conversation-container", className)}
+      aria-live="polite"
+    >
+      {resizable && <div className="ua-conversation-resizer" />}
       <Header
         title={title}
         subtitle={subtitle}
@@ -120,10 +126,17 @@ function Conversation({
         showTimeStamp={showTimeStamp}
       />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
-      {emojis && pickerStatus && (<Picker 
-        style={{ position: 'absolute', bottom: pickerOffset, left: '0', width: '100%' }}
-        onSelect={onSelectEmoji}
-      />)}
+      {emojis && pickerStatus && (
+        <Picker
+          style={{
+            position: "absolute",
+            bottom: pickerOffset,
+            left: "0",
+            width: "100%",
+          }}
+          onSelect={onSelectEmoji}
+        />
+      )}
       <Sender
         ref={senderRef}
         sendMessage={handlerSendMsn}
