@@ -11,7 +11,8 @@ import { addUserMessage } from "..";
 
 export default class App extends Component {
   componentDidMount() {
-    addResponseMessage("Welcome to this awesome chat!");
+    addResponseMessage(`Hi! 
+    Describe your issue or question and I’ll do my best to suggest some options.`);
   }
 
   handleNewUserMessage = (newMessage: any) => {
